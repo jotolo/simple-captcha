@@ -43,7 +43,7 @@ module SimpleCaptcha #:nodoc
     #
     # All Feedbacks/CommentS/Issues/Queries are welcome.
     def show_simple_captcha(options = {})
-      render :partial => SimpleCaptcha.partial_path, :locals => { :simple_captcha_options => simple_captcha_options(options) }
+      render :partial => options[:partial_path].present? ? options[:partial_path] : SimpleCaptcha.partial_path, :locals => { :simple_captcha_options => simple_captcha_options(options) }
     end
 
     def simple_captcha_options(options = {})
